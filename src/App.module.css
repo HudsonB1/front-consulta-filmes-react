@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+   font-family: "Montserrat", sans-serif;
+}
+
+.App {
+   display: flex;
+   flex-direction: column;
+   margin: 0 auto;
+   background-color: #000;
+   color: #fff;
+   width: 100vw;
+   height: 100vh;
+   text-align: center;
+}
+
+.App h1 {
+   margin: auto;
+}
+
+.App .movies-list {
+   display: flex;
+   flex-direction: column;
+   margin: auto;
+}
