@@ -1,19 +1,19 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+import Header from './components/Header/Header';
+
 import styles from './App.module.css'
 
-import Movie from '../backend/src/models/Movie';
+import Movie from './interfaces/Movie';
 
 export default function App() {
 
-   const [movies, setMovies] = useState<any>([]);
-
+   const [movies, setMovies] = useState<Movie[]>([]);
    useEffect(() => {
       const fetchMovies = async () => {
          try {
             const response = await axios.get('http://192.168.3.101:6969/api/movies');
-            console.log(response.data);
             setMovies(response.data);
          } catch (error) {
             console.error('Erro ao buscar filmes:', error);
@@ -23,21 +23,22 @@ export default function App() {
       fetchMovies();
    }, []);
 
-
-
-
    return (
-      <div className={styles.App}>
-         <h1>Olá</h1>
-         <div className='movies-list'>
-            <h2>Lista de Filmes</h2>
-            <ul>
-               {movies.map((movie) => (
-                  <li>{movie.title}</li>
-               ))}
-            </ul>
+      <>
+         <Header />
+         <div className={styles.App}>
+            <div className='movies-list'>
+               <h2>Lista de Filmes</h2>
+               <ul>
+                  {
+                     movies.map((movie) => (
+                        <li>{movie.title}</li>
+                     ))
+                  }
+               </ul>
+            </div>
          </div>
-      </div >
+      </>
    )
 }
 

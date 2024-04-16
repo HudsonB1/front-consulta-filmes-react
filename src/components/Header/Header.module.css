@@ -1,0 +1,33 @@
+.header {
+   display: flex;
+   flex-direction: column;
+   background-color: #525252;
+   color: #fff;
+   padding: 10px 10px 0 10px;
+}
+
+.header h1 {
+   margin: auto;
+   text-align: center;
+}
+
+.header ul {
+   display: flex;
+   justify-content: end;
+}
+
+.header ul li {
+   margin: 0 10px;
+   list-style: none;
+}
+
+
+/* .App {
+   display: flex;
+   flex-direction: column;
+   margin: 0 auto;
+   background-color: #000;
+   color: #fff;
+   height: 100vh;
+   text-align: center;
+} */
