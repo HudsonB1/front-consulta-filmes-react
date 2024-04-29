@@ -1,0 +1,19 @@
+
+.App {
+   display: flex;
+   flex-direction: column;
+   margin: 0 auto;
+   background-color: #171717;
+   height: 100vh;
+   text-align: center;
+}
+
+.App h1 {
+   margin: auto;
+}
+
+.App .movies-list {
+   display: flex;
+   flex-direction: column;
+   margin: auto;
+}

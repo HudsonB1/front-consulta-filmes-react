@@ -2,24 +2,60 @@
 
 :root {
    font-family: "Montserrat", sans-serif;
+   background-color: #171717;
+   color: #FFF;
+   text-align: center;
+}
+
+.span {
+   color: #b99950;
 }
 
 .App {
    display: flex;
    flex-direction: column;
-   margin: 0 auto;
-   background-color: #171717;
-   color: #fff;
-   height: 100vh;
-   text-align: center;
 }
 
-.App h1 {
-   margin: auto;
-}
-
-.App .movies-list {
+.App .container {
    display: flex;
    flex-direction: column;
-   margin: auto;
+   text-align: left;
+}
+
+.App .container h1 {
+   margin: 2% 30%;
+}
+
+.overlay {
+   margin: 0 15%;
+   padding: 2%;
+   height: 200px;
+   border-radius: 5px;
+   background-image: linear-gradient(0deg, transparent -200%, #000 110%), url(./assets/oscar-filmes.jpg);
+   background-size: cover;
+}
+
+.overlay p {
+   font-size: 150%;
+   font-weight: normal;
+}
+
+
+.module {
+   display: flex;
+   flex-direction: row;
+   padding: 2%;
+   justify-content: center;
+}
+
+.module .modules {
+   background-color: #232323;
+   margin: 2% ;
+   width: 15%;
+   padding: 2%;
+   border-radius: 5px;
+}
+
+.icon {
+   width: 15%;
 }
