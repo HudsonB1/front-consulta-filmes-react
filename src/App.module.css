@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-:root {
-   font-family: "Montserrat", sans-serif;
-   background-color: #171717;
-   color: #FFF;
-   text-align: center;
+body {
+   min-height: 100svh;
+}
+
+#root {
+   height: 100%;
 }
 
 .span {
@@ -12,8 +12,10 @@
 }
 
 .App {
+   text-align: center;
    display: flex;
    flex-direction: column;
+   height: 100%;
 }
 
 .App .container {
@@ -59,3 +61,4 @@
 .icon {
    width: 15%;
 }
+

@@ -7,8 +7,8 @@ import Movie from '@/interfaces/Movie';
 
 
 export default function Lista() {
-
    const [movies, setMovies] = useState<Movie[]>([]);
+
    useEffect(() => {
       const fetchMovies = async () => {
          try {
@@ -21,10 +21,12 @@ export default function Lista() {
 
       fetchMovies();
    }, []);
+
+
    return (
       <div>
          <h1>Lista</h1>
-         
+
          <div>
             <div className='movies-list'>
                <h2>Lista de Filmes</h2>
