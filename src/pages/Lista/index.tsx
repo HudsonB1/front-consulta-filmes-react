@@ -1,13 +1,18 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-
 import { Link } from "react-router-dom";
 
-import Movie from '@/interfaces/Movie';
+import styles from './Lista.module.css';
+
+import Movies from '@/interfaces/Movie';
+import Movie from '@/components/Movie';
+
+import ReplyIcon from '@mui/icons-material/Reply';
 
 
 export default function Lista() {
-   const [movies, setMovies] = useState<Movie[]>([]);
+   const [movies, setMovies] = useState<Movies[]>([]);
+
 
    useEffect(() => {
       const fetchMovies = async () => {
@@ -22,24 +27,25 @@ export default function Lista() {
       fetchMovies();
    }, []);
 
-
    return (
-      <div>
-         <h1>Lista</h1>
+      <div className={styles.container_movies}>
+         <h1>Lista de avaliações</h1>
 
          <div>
-            <div className='movies-list'>
-               <h2>Lista de Filmes</h2>
-               <ul>
-                  {
-                     movies.map((movie) => (
-                        <li>{movie.title}</li>
-                     ))
-                  }
-               </ul>
+            <div className={styles.movies_list}>
+               <h2><Link to="/"><ReplyIcon sx={{ color: 'white', fontSize: 30 }} /></Link>Filmes</h2>
+
+               {movies.length === 0 ? <h2>Lista vazia!</h2> :
+                  <ul>
+                     {movies.map((movie) => (
+                        <li>
+                           <Movie poster={movie.poster} name={movie.title} director={movie.director} stars={movie.stars} rating={movie.rating} description={movie.description} createdAt={new Date(movie.createdAt)} updatedAt={new Date(movie.updatedAt)} />
+                        </li>
+                     ))}
+                  </ul>
+               }
             </div>
          </div>
-         <Link to="/">Voltar</Link>
       </div>
    )
 }

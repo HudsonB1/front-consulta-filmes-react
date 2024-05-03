@@ -1,0 +1,34 @@
+.movie_component {
+   display: flex;
+   background-color: #232323;
+   flex-direction: column;
+   border: 1px solid #747474;
+   max-width: 35%;
+   padding: 1%;
+   margin: .5% auto;
+}
+
+.movie_container {
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+}
+
+.movie_poster {
+   width: 40%;
+}
+
+.movie_info {
+   padding: 5%;
+   text-align: left;
+}
+
+.movie_rating {
+   border: 1px solid #747474;
+   padding: 1% 5%;
+   border-radius: 5px;
+}
+
+.movie_rating h4 {
+   margin: 0;
+}

@@ -50,18 +50,15 @@ export default function Form({ closeModal, btnText }: Props) {
          await axios.post('http://192.168.3.101:6969/api/movie', body);
          console.log("OK")
          closeModal();
-      } catch (error) {
-         console.error('Erro ao buscar filmes:', error);
+      } catch (error: any) {
+         console.error('Erro ao cadastrar o filme:', JSON.stringify(error.request.responseText));
       }
-
    }
 
    const deleteStar = (star: string) => {
       const arrStars = stars.filter((item) => item !== star);
       setStars(arrStars);
    };
-
-
 
    return (
       <>
@@ -72,7 +69,7 @@ export default function Form({ closeModal, btnText }: Props) {
             </div>
             <div className={styles.input_container}>
                <label className={styles.label_container} htmlFor="rating">Avaliação:</label>
-               <Rating name="rating" defaultValue={3} value={rating} onChange={(event, newValue) => { setRating(newValue); }} />
+               <Rating name="rating" defaultValue={3} value={rating} onChange={(event, newValue) => { if (event.type === "change") setRating(newValue); }} max={10} />
             </div>
             <div className={styles.input_container}>
                <label className={styles.label_container} htmlFor="description">Descrição:</label>
@@ -92,9 +89,12 @@ export default function Form({ closeModal, btnText }: Props) {
                   }} />
                </div>
                <ul>
-                  {stars.length === 0 ? null : stars.map((star) => <li key={star}>
-                     <Chip sx={{ justifyContent: 'space-between' }} color='info' label={star} variant="outlined" onDelete={() => deleteStar(star)} />
-                  </li>)}
+                  {
+                     stars.length === 0 ? null : stars.map((star) =>
+                        <li key={star}>
+                           <Chip sx={{ justifyContent: 'space-between' }} color='info' label={star} variant="outlined" onDelete={() => deleteStar(star)} />
+                        </li>)
+                  }
                </ul>
 
             </div>
