@@ -21,6 +21,9 @@ export default function Form({ closeModal, btnText, id, updateMovies }: Props) {
    const [star, setStar] = useState<string>('');
    const [stars, setStars] = useState<string[]>([]);
 
+
+   // Verifica se o id foi passado e busca os dados do filme - caso tenha o id é porque se trata de uma edição e não um novo cadastro
+   // Quando o id estiver definido, busca os dados do filme e preenche os campos do formulário
    useEffect(() => {
       if (id) {
          async function fetchMovie() {
@@ -61,10 +64,13 @@ export default function Form({ closeModal, btnText, id, updateMovies }: Props) {
       };
 
       try {
+         // Caso o id tenha sido passado, atualiza o filme e atualiza a lista de filmes na tela
          if (id) {
+            // Atualiza o filme
             await axios.patch(`http://192.168.3.101:6969/api/movie/${id}`, body);
             if (updateMovies) updateMovies();
          } else {
+            // Cria um novo filme
             await axios.post('http://192.168.3.101:6969/api/movie', body);
          }
          closeModal();
