@@ -17,7 +17,7 @@ export default function Movie({poster, name, director, stars, rating, descriptio
    return (
       <div className={styles.movie_component}>
          <div className={styles.movie_container}>
-            <img className={styles.movie_poster} src={poster} alt="poster" />
+            <img className={styles.movie_poster} src={poster} alt={`Poster ${name}`} />
             <div className={styles.movie_info}>
                <h3>{name}</h3>
                <p>Direção: {director}</p>

@@ -15,7 +15,6 @@ export default function App() {
       modal!.classList.toggle("hide");
    }
 
-
    return (
       <div className={styles.App}>
          <Modal children={<Form closeModal={toggleModal} btnText={"Cadastrar"} />} h2={"Cadastro"} />

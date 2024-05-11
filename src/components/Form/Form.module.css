@@ -4,16 +4,14 @@
    margin: 0 auto;
 }
 
-.form input[type = "text"] {
+.form input[type = "text"], .form textarea {
    outline: none;
-}
-
-.form input {
    padding: 8px;
-   border: 1px solid #282c34;
+   max-width: 100%;
 }
 
-.form button {
+
+.form .button {
    background-color: #b99950;
    border-style: none;
    border-radius: 3px;
@@ -29,7 +27,6 @@
    flex-direction: column;
    text-align: left;
 }
-
 
 .label_container {
    font-weight: bold;

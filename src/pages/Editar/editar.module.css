@@ -1,0 +1,22 @@
+.container_edit {
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+}
+
+.container_edit h1 {
+   background-color: #232323;
+   padding: 1%;
+   margin: 0;
+}
+
+.button {
+   background-color: #b99950;
+   border-style: none;
+   border-radius: 3px;
+   color: #fff;
+   cursor: pointer;
+   font-weight: bold;
+   padding: 2% 5%;
+   margin: 5% 1%;
+}

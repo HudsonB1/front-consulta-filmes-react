@@ -13,9 +13,8 @@ import ReplyIcon from '@mui/icons-material/Reply';
 export default function Lista() {
    const [movies, setMovies] = useState<Movies[]>([]);
 
-
    useEffect(() => {
-      const fetchMovies = async () => {
+      async function fetchMovies() {
          try {
             const response = await axios.get('http://192.168.3.101:6969/api/movies');
             setMovies(response.data);
@@ -23,18 +22,15 @@ export default function Lista() {
             console.error('Erro ao buscar filmes:', error);
          }
       };
-
       fetchMovies();
    }, []);
 
    return (
       <div className={styles.container_movies}>
          <h1>Lista de avaliações</h1>
-
          <div>
             <div className={styles.movies_list}>
-               <h2><Link to="/"><ReplyIcon sx={{ color: 'white', fontSize: 30 }} /></Link>Filmes</h2>
-
+               <h2><Link to="/"><ReplyIcon sx={{ color: '#fff', fontSize: 20 }} /></Link>Filmes</h2>
                {movies.length === 0 ? <h2>Lista vazia!</h2> :
                   <ul>
                      {movies.map((movie) => (
